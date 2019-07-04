@@ -130,4 +130,6 @@ RUN gvm-manage-certs -a && gvmd --create-user=admin
 # start evrytnhg to test is out..
 COPY entrypoint.sh /usr/local/bin/
 
+EXPOSE 80, 443, 9200
+
 ENTRYPOINT ['entrypoint.sh']
