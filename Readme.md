@@ -20,13 +20,18 @@ docker run -itd --restart=always \
 --name=openvas \
 -p 9392:9392 \
 -v /srv/docker/openvas/var/run:/usr/local/var/run \
-registry.cn-hangzhou.aliyuncs.com/rapid7/openvas:v10
+registry.cn-hangzhou.aliyuncs.com/rapid7/openvas
 ```
 
 ## Web 访问接口
 ```
 Username: admin
 Password: admin
+```
+**如果用户不可用**
+> 创建备用用户 admin001 112233..
+```
+docker exec -i openvas gvmd --create-user=admin002 --password=112233..
 ```
 
 ## 监控扫描进程
