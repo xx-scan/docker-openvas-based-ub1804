@@ -122,8 +122,9 @@ RUN cd /build && \
     python3 setup.py install && \
     echo "/usr/local/lib" > /etc/ld.so.conf.d/openvas.conf && ldconfig && cd / && rm -rf /build
 
+COPY update_nvt.sh /root/update_nvt.sh
+RUN chmod +x /root/update_nvt.sh
+
 RUN greenbone-nvt-sync
-
 COPY start.sh /start.sh
-
 CMD '/start.sh'
