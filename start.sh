@@ -20,10 +20,10 @@ openvassd
 gvmd
 gsad --verbose --http-only --no-redirect --port=9392
 
-echo "Update NVTs"
-greenbone-nvt-sync
-greenbone-certdata-sync
-greenbone-scapdata-sync
+#echo "Update NVTs"
+#greenbone-nvt-sync
+#greenbone-certdata-sync
+#greenbone-scapdata-sync
 
 if [ ! -f "/firstrun" ]; then
   echo "Setting up user"
