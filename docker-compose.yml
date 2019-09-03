@@ -1,0 +1,23 @@
+version: "2.2"
+
+services:
+   openvasd:
+      container_name: openvas-engine
+      restart: always
+      image: 'registry.cn-hangzhou.aliyuncs.com/rapid7/openvas'
+      ports:
+        - "9392:9392"
+      volumes:
+        - /etc/localtime:/etc/localtime:ro
+        - /srv/docker/openvas/var/run:/usr/local/var/run
+      networks:
+          customize_net:
+            ipv4_address: 192.168.177.189
+
+networks:
+  customize_net:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.177.0/24
